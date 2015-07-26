@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=100:00:00
+#PBS -o confidenceppsmall.out
+#PBS -e confidenceppsmall.err
+cd /home/ap21/Deterministic60
+
+date
+matlab -nodisplay -r "psitestsmall"
+date

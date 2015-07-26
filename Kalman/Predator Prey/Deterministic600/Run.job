@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=100:00:00
+#PBS -o confidenceppmed.out
+#PBS -e confidenceppmed.err
+cd /home/ap21/Deterministic600
+
+date
+matlab -nodisplay -r "psitestmed"
+date
