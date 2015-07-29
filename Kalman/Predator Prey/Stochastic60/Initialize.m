@@ -12,11 +12,6 @@ H=[0,1,0,0,0,0];
 V=eye(1);
 % Weight for Noise
 %initial conditions
-a100=a10*(1+.1*randn);
-a120=a12*(1+.1*randn);
-a210=a21*(1+.1*randn);
-a200=a20*(1+.1*randn);
-q=[a100,a120,a210,a200];
 Pminus = eye(6);
 P=mat2vec(Pminus);
 s=size(t);

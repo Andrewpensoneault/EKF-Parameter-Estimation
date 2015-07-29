@@ -2,7 +2,6 @@
 xStore=[];
 params=[];
 for i=1:ntrials
-    count=0;
     data = y(:,2) + r.*randn(size(y(:,2),1),1);   %generates noisy data
     R=sum((data-true).^2)/(length(data)-1);
     fprintf('R is %i\n',R)
@@ -11,9 +10,9 @@ for i=1:ntrials
     xhat=[Prey;data(1);q'];
     for k=2:length(data)
         % Time update
-        [T,x] = ode23s(@PPmodwP,k:k+1,IC,options,g,Q(:,:,k)); %generates point at time t
-        xhatminus= x(end,1:6)';%takes states and parameters
-        Pminus = x(end,7:end)';%takes covariance
+        x=Euler(k,IC,Q(:,:,k),.0005,g);
+        xhatminus= x(1:6);
+        Pminus = x(7:end)';
         Pminus = vec2mat(Pminus);
         Pminus = (Pminus+Pminus')/2;%make symmetric
         % Measurement update

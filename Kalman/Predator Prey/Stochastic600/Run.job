@@ -4,7 +4,7 @@
 #PBS -l walltime=100:00:00
 #PBS -o confidenceppmed.out
 #PBS -e confidenceppmed.err
-cd /home/ap21/Stochastic600
+cd /home/ap21/Knightrider/Stochastic600
 
 date
 matlab -nodisplay -r "psitestmed"

@@ -2,7 +2,7 @@ clear all
 clc
 rand('seed',1)%Set Seed
 %%%small pop
-warning off
+% warning off
 diary on
 fprintf('N is 60\n')
 N=60;
@@ -13,11 +13,18 @@ a20=.2;
 Pred=.25*N;
 Prey=.75*N;
 parameters=[a10 a12 a21 a20];
+%%Generate Guess
+a100=a10*(1+.1*randn);
+a120=a12*(1+.1*randn);
+a210=a21*(1+.1*randn);
+a200=a20*(1+.1*randn);
+q=[a100,a120,a210,a200];
 %%psi=1
 Psi=1;
 rng(1,'twister')%Set Seed
 fprintf('Psi is 1 \n')
 Initialize
+Q=Q;
 basic_6_19
 params
 %%psi=.1
