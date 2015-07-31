@@ -1,4 +1,4 @@
-function Q = qgen(N,psi,parameters,IC,time)
+function Q = qgen(N,psi,parameters,IC,time,pop)
 %This function takes the number of "runs" of the ode system (N) with
 %randomly variated parameter values(beta gamma) and the fine tuning value
 %(psi) of the filter and calculates a Q matrix which is 3x3x#timesteps. 
@@ -20,7 +20,7 @@ for i=1:N %calculates our state value(I) and beta and gamma based on determinist
     a20(i) = a200 * (1 + 0.01*randn);
     q=[a10(i),a12(i),a21(i),a20(i)];
     options = [];
-    [t,y]=ode23s(@pp_ode_6_19,1:1:tstop,[IC],options,q);
+    [t,y]=ode23s(@pp_ode_6_19,1:1:tstop,[IC],options,q,pop);
     Predmat(:,i) = y(:,2); %stores state values(I) for each run i at each timestep from 1-365.
     Preymat(:,i) = y(:,1);
 end

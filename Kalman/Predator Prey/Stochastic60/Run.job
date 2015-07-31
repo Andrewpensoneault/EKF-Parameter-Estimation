@@ -4,8 +4,8 @@
 #PBS -l walltime=100:00:00
 #PBS -o confidenceppsmall.out
 #PBS -e confidenceppsmall.err
-cd /home/ap21/Knightrider/Stochastic60
+cd /home/ap21/Knightrider/S60
 
 date
-matlab -nodisplay -r "psitestsmall"
+matlab -nodisplay -r "basic_7_16"
 date
